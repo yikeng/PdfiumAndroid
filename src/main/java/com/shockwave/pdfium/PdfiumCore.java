@@ -23,6 +23,7 @@ public class PdfiumCore {
 
     static {
         try {
+            System.loadLibrary("c++_shared");
             System.loadLibrary("modpng");
             System.loadLibrary("modft2");
             System.loadLibrary("modpdfium");
@@ -118,6 +119,7 @@ public class PdfiumCore {
     /** Context needed to get screen density */
     public PdfiumCore(Context ctx) {
         mCurrentDpi = ctx.getResources().getDisplayMetrics().densityDpi;
+        Log.d(TAG, "Starting PdfiumAndroid " + BuildConfig.VERSION_NAME);
     }
 
     /** Create new document from file */
